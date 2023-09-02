@@ -1,0 +1,15 @@
+{
+    "/dist/js/popup.js": "/dist/js/popup.js",
+    "/dist/js/service-worker.js": "/dist/js/service-worker.js",
+    "/dist/js/content-script.js": "/dist/js/content-script.js",
+    "/dist/js/options.js": "/dist/js/options.js",
+    "/dist/css/bootstrap.css": "/dist/css/bootstrap.css",
+    "/dist/css/popup.css": "/dist/css/popup.css",
+    "/dist/images/icon128.png": "/dist/images/icon128.png",
+    "/dist/images/icon16.png": "/dist/images/icon16.png",
+    "/dist/images/icon32.png": "/dist/images/icon32.png",
+    "/dist/images/icon48.png": "/dist/images/icon48.png",
+    "/dist/manifest.json": "/dist/manifest.json",
+    "/dist/html/options.html": "/dist/html/options.html",
+    "/dist/html/popup.html": "/dist/html/popup.html"
+}

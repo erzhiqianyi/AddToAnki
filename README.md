@@ -44,6 +44,36 @@ Before contributing, please follow these steps:
   
    Navigate to the project directory and install the required dependencies. 
 
+   - Installing Node.js And npm
+     
+      Using Node.js to run JavaScript, npm to install and manage dependencies.
+      ```bash
+        # Verify installation
+        node --version
+        npm --version
+
+      ```
+   - Setting Up Vue CLI
+      
+      Vue CLI is a command-line tool for scaffolding Vue.js projects
+      ```bash
+        # Install Vue CLI
+        npm install -g @vue/cli
+      
+        # Verify installation
+        vue -V 
+      ```
+   - Installing dependencies
+      ```bash
+      nmp install
+      ```
+   - Installing Vue.js devtools
+     
+     The Vue.js devtools extension is a browser extension for Chrome and Firefox that allows you to inspect and debug your Vue.js applications.
+     
+     [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+
+
 - Understand Project Structure 
 
   Make sure you understand the project's structure and organization. You can refer to our documentation for more information.
@@ -71,7 +101,7 @@ You can contribute by selecting one or more of the following tasks:
 #### 3. Create a Branch
 Before starting work, create a new branch to avoid affecting the main branch. Use a descriptive branch name like feature/your-feature or bugfix/issue-number.
 
-#### 4. Write Code
+#### 4Installing . Write Code
 Work on your branch and write code according to the task you've chosen. Ensure you follow the project's coding style and standards.
 
 #### 5. Testing

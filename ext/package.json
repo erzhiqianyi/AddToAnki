@@ -1,0 +1,36 @@
+{
+  "name": "add-to-anki",
+  "version": "1.0.0",
+  "description": "A Japanese pop-up dictionary extension",
+  "main": "index.js",
+  "scripts": {
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --env=production --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erzhiqianyi/AddToAnki.git"
+  },
+  "keywords": [
+    "Japanese",
+    "dictionary",
+    "chatgpt",
+    "extension"
+  ],
+  "author": "erzhiqianyi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erzhiqianyi/AddToAnki/issues"
+  },
+  "homepage": "https://github.com/erzhiqianyi/AddToAnki#readme",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^6.0.49",
+    "postcss": "^8.4.29",
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
+    "vue": "^3.3.4",
+    "vue-loader": "^17.2.2",
+    "vue-template-compiler": "^2.7.14"
+  }
+}
