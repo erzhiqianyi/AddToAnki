@@ -1,3 +1,5 @@
+console.log("backgroumd service")
+
 const  ID_AddToAnki = "AddToAnki"
 //add a context action called AddToAnki
 chrome.contextMenus.create({
