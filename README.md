@@ -25,11 +25,76 @@ AddToAnki provides advanced features :
 ## Table of Contents
 - [Installation](#Installation)
 - [Basic Usage](#basic-usage)
+- [Contribution Guidelines](#Contribution-Guidelines)
 - [Licenses](#licenses)
 - [Third-Party Libraries](#third-party-libraries)
 - [Author](#Author)
 ### Installation
 ### Basic Usage
+### Contribution Guidelines
+#### 1. Overview
+Before contributing, please follow these steps:
+- Clone the Project
+  
+    Use the following command to clone the project's GitHub repository to your local machine. 
+    ```bash
+    git clone https://github.com/erzhiqianyi/AddToAnki.git 
+    ```
+- Install Dependencies
+  
+   Navigate to the project directory and install the required dependencies. 
+
+- Understand Project Structure 
+
+  Make sure you understand the project's structure and organization. You can refer to our documentation for more information.
+
+
+#### 2. Choose a Task 
+You can contribute by selecting one or more of the following tasks:
+
+- Feature Enhancement
+  
+  If you have new feature ideas or suggestions for improving existing features, please propose them in our issue tracker and await approval.
+
+- Bug Fixes 
+  
+  You can check the issue list in our issue tracker and attempt to fix any reported bugs.
+
+- Documentation
+  
+  Help improve project documentation, including code comments, the README file, and user guides.
+
+- Testing
+  
+  Write test cases to ensure the stability and performance of the extension.
+
+#### 3. Create a Branch
+Before starting work, create a new branch to avoid affecting the main branch. Use a descriptive branch name like feature/your-feature or bugfix/issue-number.
+
+#### 4. Write Code
+Work on your branch and write code according to the task you've chosen. Ensure you follow the project's coding style and standards.
+
+#### 5. Testing
+Before submitting, make sure your changes pass the project's tests. If you're adding new features, be sure to write appropriate unit tests.
+
+#### 6. Submit a Pull Request
+Once you've completed your task and passed the tests, submit a pull request (PR). Provide a clear title and description explaining the purpose and content of your changes.
+
+#### 7. Review and Merge
+Our team will review your pull request and provide feedback if necessary. Once your contribution is reviewed and approved, it will be merged into the main branch.
+
+#### 8. Acknowledgment
+Once your contribution is merged, you will be listed as a contributor to the project and acknowledged in the contributors' list.
+
+#### Need Help?
+If you have any questions, concerns, or need further assistance, please don't hesitate to reach out to us. You can contact us through the following channels:
+
+Project Issue Tracker: [AddToAnki Issues](https://github.com/erzhiqianyi/AddToAnki/issues)
+
+Email: addtoanki@erzhiqian.cc
+
+We welcome your contributions and thank you for being a part of this project, making it better together!
+
 ### Licenses
 ```
 MIT License
