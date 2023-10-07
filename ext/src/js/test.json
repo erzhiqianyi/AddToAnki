@@ -1,0 +1,22 @@
+{
+  "action": "createModel",
+  "version": 6,
+  "params": {
+    "modelName": "日语句子",
+    "inOrderFields": [
+      "sort",
+      "sentence",
+      "translation",
+      "kana",
+      "audio"
+    ],
+    "isCloze": false,
+    "cardTemplates": [
+      {
+        "Name": "Sentence",
+        "Front": "<span class=\"jp\">{{furigana:sentence}}</span>",
+        "Back": "{{FrontSide}}\n\n<hr id=answer>\n\n<span class=\"jp\">{{kana}}</span> {{audio}} <hr>{{furigana:translation}}"
+      }
+    ]
+  }
+}

@@ -35,6 +35,31 @@
                        type="password" v-model=openAi.token>
               </div>
 
+              <div class="col-sm-12 mt-2">
+
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="maxToken">MaxToken</label>
+                <input class="form-control" id="maxToken" placeholder="Max Token"
+                       type="text" v-model="openAi.maxToken">
+
+              </div>
+
+              <div class="col-sm-6">
+                <label class="form-label" for="temperature">Temperature</label>
+                <input class="form-control" id="temperature" placeholder="temperature"
+                       type="text" v-model="openAi.temperature">
+              </div>
+
+
+              <div class="col-12 mt-2">
+                <div class="form-floating">
+                  <label for="system">System</label>
+                  <textarea class="form-control" id="system" placeholder="The System Role "
+                            style="height: 50px" v-model=openAi.system
+                  ></textarea>
+                </div>
+              </div>
               <div class="col-12 mt-2">
                 <div class="form-floating">
                   <label for="prompt">Prompt</label>
@@ -54,9 +79,8 @@
                 <div class="card" style="width: 60rem;">
                   <div class="card-body">
                     <h5 class="card-title">Explain</h5>
-                    <p class="card-text">
+                    <p class="card-text"/>
                     <pre v-highlightjs="sourcecode"><code class="javascript">{{ openAi.explain }}</code></pre>
-                    </p>
                   </div>
                 </div>
               </div>
@@ -154,7 +178,7 @@
                 <button class="w-10 btn btn-primary btn-sm m-1" type="button" @click="checkWordModel">Check Word
                 </button>
                 <textarea class="form-control" id="wordModel" placeholder="The model detail of word"
-                          style="height: 500px" v-model="anki.wordModel"></textarea>
+                          style="height: 200px" v-model="anki.wordModel"></textarea>
               </div>
             </div>
 
@@ -165,7 +189,7 @@
                   Sentence
                 </button>
                 <textarea class="form-control" id="sentenceModel" placeholder="The model detail of sentence"
-                          style="height: 500px" v-model="anki.sentenceModel"></textarea>
+                          style="height: 200px" v-model="anki.sentenceModel"></textarea>
               </div>
             </div>
 
@@ -190,6 +214,7 @@
 </template>
 <script>
 import axios from 'axios'
+import config from "../defaultConfig"
 
 export default {
   name: 'ExtOptions',
@@ -198,79 +223,42 @@ export default {
       openAi: {
         host: '',
         token: '',
-        prompt: '日本語の単語に対して日本語の定義を提供し、その後単語、ひらがな、ローマ字、定義、中国語訳、品詞を出力してください。定義はできるだけ詳細に、N1レベルの語彙を参考にしてください。定義は日本語で出力してください。また、N1レベルの例文5つを提供し、それぞれの例文にひらがなと中国語訳を含めてください。出力はJSON形式です。JSON形式\'\'\'{ word: 学生, kana: がくせい, romaji: gakusei, definition: student, translation: 学生, speech: noun, sentences: [ { sentence: 私は大学生です, kana: わたしはだいがくせいです, translation: 我是大学生 } ] }\'\'\'',
-        model: 'gpt-3.5-turbo',
-        word: "学生",
+        maxToken: config.defaultMaxToken,
+        temperature: config.defaultTemperature,
+        system: config.defaultSystem,
+        prompt: config.defaultPrompt,
+        model: config.defaultModel,
+        word: config.defaultWord,
         explain: ""
       },
       azure: {
         host: '',
         token: '',
-        area: 'eastasia',
-        voice: 'ja-JP-MayuNeural',
-        word: '学生',
-        voiceUrl: this.host + "?kanji="+this.word + "&token="+this.token
+        area: config.defaultArea,
+        voice: config.defaultVoice,
+        word: config.defaultWord,
       },
       anki: {
-        host: 'http://127.0.0.1:8765',
-        deckName: '日语单词',
-        wordModel: ' {\n' +
-            '    "action": "createModel",\n' +
-            '    "version": 6,\n' +
-            '    "params": {\n' +
-            '      "modelName": "日语单词",\n' +
-            '      "inOrderFields": [\n' +
-            '        "sort",\n' +
-            '        "word",\n' +
-            '        "speech",\n' +
-            '        "translation",\n' +
-            '        "definition",\n' +
-            '        "audio"\n' +
-            '      ],\n' +
-            '      "css": "@font-face {\\n font-family: IPAexMincho; src: url(\'_ipaexm.ttf\');\\n}\\n\\n.jp {\\n  font-family: IPAexMincho;\\n}\\n\\n.card {\\n font-family: arial;\\n font-size: 20px;\\n text-align: center;\\n color: black;\\n background-color: white;\\n}",\n' +
-            '      "isCloze": false,\n' +
-            '      "cardTemplates": [\n' +
-            '        {\n' +
-            '          "Name": "Definition",\n' +
-            '          "Front": "<span class=\\"jp\\">{{furigana:word}}</span> {{speech}}",\n' +
-            '          "Back": "{{FrontSide}}\\n\\n<hr id=answer>\\n\\n<span class=\\"jp\\">{{furigana:word}}</span> {{audio}}<hr>{{definition}}<hr>{{translation}}"\n' +
-            '        }\n' +
-            '      ]\n' +
-            '    }\n' +
-            '  }',
-        sentenceModel: '  {\n' +
-            '    "action": "createModel",\n' +
-            '    "version": 6,\n' +
-            '    "params": {\n' +
-            '      "modelName": "日语句子",\n' +
-            '      "inOrderFields": [\n' +
-            '        "sort",\n' +
-            '        "sentence",\n' +
-            '        "translation",\n' +
-            '        "kana",\n' +
-            '        "audio"\n' +
-            '      ],\n' +
-            '      "isCloze": false,\n' +
-            '      "cardTemplates": [\n' +
-            '        {\n' +
-            '          "Name": "Sentence",\n' +
-            '          "Front": "<span class=\\"jp\\">{{furigana:sentence}}</span>",\n' +
-            '          "Back": "{{FrontSide}}\\n\\n<hr id=answer>\\n\\n<span class=\\"jp\\">{{kana}}</span> {{audio}} <hr>{{furigana:translation}}"\n' +
-            '        }\n' +
-            '      ]\n' +
-            '    }\n' +
-            '  }'
+        host: config.defaultAnkiHost,
+        deckName: config.defaultDeckName,
+        wordModel: config.defaultWordModel,
+        sentenceModel: config.defaultSentenceModel
       }
-
-    };
+    }
   },
   async created() {
     console.log("restore options")
     chrome.storage.sync.get(
         (items) => {
-          this.openAi = items.openAi
-          this.azure = items.azure
-          this.anki = items.anki
+          if (items.openAi) {
+            this.openAi = items.openAi
+          }
+          if (items.azure) {
+            this.azure = items.azure
+          }
+          if (items.anki) {
+            this.anki = items.anki
+          }
         }
     );
   },
@@ -281,18 +269,28 @@ export default {
       );
     },
     async checkPrompt() {
+      let wordPlaceHolder = "${WORD}"
+      let ignoreHolder = "```"
+      const prompt = this.openAi.prompt.replaceAll(
+          wordPlaceHolder, ignoreHolder + this.openAi.word + ignoreHolder
+      )
       const parameters = {
         "model": this.openAi.model,
         "messages": [
           {
             "role": "system",
-            "content": this.openAi.prompt
+            "content": this.openAi.system
           },
           {
             "role": "user",
-            "content": this.openAi.word
+            "content": prompt
           }
-        ]
+        ],
+        "temperature": this.openAi.temperature,
+        "max_tokens": this.openAi.maxToken,
+        "top_p": 1,
+        "frequency_penalty": 0,
+        "presence_penalty": 0
       }
       const headers = {
         Authorization: this.openAi.token
@@ -302,7 +300,7 @@ export default {
       }).then(function (response) {
         if (response.status == 200) {
           const content = response.data.choices[0].message.content
-          return JSON.parse(content)
+          return content
         }
         return response
       }).catch(function (error) {
