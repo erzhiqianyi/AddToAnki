@@ -241,8 +241,8 @@ export default {
       anki: {
         host: config.defaultAnkiHost,
         deckName: config.defaultDeckName,
-        wordModel: config.defaultWordModel,
-        sentenceModel: config.defaultSentenceModel
+        wordModel: JSON.stringify(config.defaultWordModel),
+        sentenceModel: JSON.stringify(config.defaultSentenceModel)
       }
     }
   },

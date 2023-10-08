@@ -5,13 +5,12 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     const action = message.action
     switch (action) {
         case "AddToAnki":
-            const selectedText = message.selectedText;
-            showSelectedText(selectedText)
+            const explainMessage = message.message ;
+            showMessage(explainMessage)
             break
     }
 });
 
-function showSelectedText(selectedText){
-    const selectedWords = selectedText.trim().split(/\s+/);
-    alert("selected text is: "+selectedWords.join("\n"));
+function showMessage(message){
+    alert(message);
 }
